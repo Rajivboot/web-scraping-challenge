@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape</a></p>
+    </div>
+
+    <!-- mars Listings -->
+    <div class="container-fluid">
+    <div class="row" id="mars-listings">
+      <div class="col-lg-12 col-md-12">
+        <h4 class="heading">{{listings.newstitle}} {{listings.newp}}</h4>
+        <img src="{{listings.featured_url}}" class="img-responsive">
+        {{listings.mars | safe}}
+        {% for h in listings.hemisphere_image_urls %}
+        <div class = "col-lg-6 col-md-4">
+            <img src ="{{h.img_url}}" class="img-fluid">
+            <p>{{h.title}}</p>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
